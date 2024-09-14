@@ -16,7 +16,7 @@ SWOYO_test/
 
    &emsp;&emsp;└── config.yml&&emsp;# Конфигурационный файл
 
-   &emsp;&emsp;;└── config.go&emsp;# Файл для работы с конфигурацией
+   &emsp;&emsp;└── config.go&emsp;# Файл для работы с конфигурацией
 
 ├── controllers/
 
