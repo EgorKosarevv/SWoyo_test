@@ -14,37 +14,37 @@ SWOYO_test/
 
 ├── config/
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── config.yml&nbsp;&nbsp;&nbsp;&nbsp;# Конфигурационный файл
+   &emsp;&emsp;└── config.yml&&emsp;# Конфигурационный файл
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── config.go&nbsp;&nbsp;&nbsp;&nbsp;# Файл для работы с конфигурацией
+   &emsp;&emsp;;└── config.go&emsp;# Файл для работы с конфигурацией
 
 ├── controllers/
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── url_controller.go # Контроллеры для обработки запросов
+   &emsp;&emsp;└── url_controller.go&emsp;# Контроллеры для обработки запросов
 
 ├── database/
 
-   &emsp;└──── db.go            # Подключение к базе данных
+   &emsp;&emsp;└── db.go&emsp;# Подключение к базе данных
 
 ├── models/
 
-   └──── url.go           # Логика работы с URL
+   &emsp;&emsp;└── url.go&emsp;# Логика работы с URL
 
 ├── store/
 
-   ├──── db_store.go      # Хранилище данных в базе данных
+   &emsp;&emsp;├── db_store.go    &emsp;  # Хранилище данных в базе данных
 
-   └──── memory_store.go  # Хранилище данных в памяти
+   &emsp;&emsp;└── memory_store.go &emsp; # Хранилище данных в памяти
 
-   └──── store.go         # Интерфейс для работы с хранилищем
+   &emsp;&emsp;└── store.go       &emsp;  # Интерфейс для работы с хранилищем
 
-├── main.go              # Главный файл приложения
+├── main.go      &emsp;        # Главный файл приложения
 
-├── go.mod               # Модульные зависимости
+├── go.mod       &emsp;        # Модульные зависимости
 
 ├── go.sum  
 
-├── .gitignore           # Файл игнорирования для Git
+├── .gitignore     &emsp;      # Файл игнорирования для Git
 
 └── README.md            
 
