@@ -1,23 +1,20 @@
 package models
 
 import (
+	"SWOYO/config"
 	"SWOYO/store"
 	"math/rand"
 	"time"
 )
 
-const urlLength = 7
-const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-
 func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-// Генерация сокращенного URL
 func GenerateShortURL(originalURL string, storage store.Store) (string, error) {
 	var shortURL string
 	for {
-		shortURL = randomString(urlLength)
+		shortURL = randomString(config.Cfg.URL.Length)
 		exists, _ := storage.Exists(shortURL)
 		if !exists {
 			break
@@ -30,8 +27,8 @@ func GenerateShortURL(originalURL string, storage store.Store) (string, error) {
 	return shortURL, nil
 }
 
-// Генерация случайной строки
 func randomString(length int) string {
+	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	b := make([]byte, length)
 	for i := range b {
 		b[i] = charset[rand.Intn(len(charset))]

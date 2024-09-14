@@ -1,0 +1,7 @@
+db:
+  user: "postgres"
+  password: "1234512345"
+  dbname: "myurlshort"
+
+url:
+  length: 7

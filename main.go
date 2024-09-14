@@ -1,6 +1,7 @@
 package main
 
 import (
+	"SWOYO/config"
 	"SWOYO/controllers"
 	"SWOYO/database"
 	"SWOYO/store"
@@ -11,11 +12,12 @@ import (
 )
 
 func main() {
-	// Парсинг флага для выбора хранилища
+	// Загрузка конфигурации
+	config.LoadConfig()
+
 	useDB := flag.Bool("d", false, "Use database storage")
 	flag.Parse()
 
-	// Инициализация хранилища
 	var storage store.Store
 	if *useDB {
 		db, err := database.Connect()
@@ -27,13 +29,9 @@ func main() {
 		storage = store.NewMemoryStore()
 	}
 
-	// Инициализация контроллера
 	controller := controllers.NewURLController(storage)
-
-	// Инициализация роутера Gin
 	r := gin.Default()
 
-	// Определение маршрутов
 	r.POST("/", controller.HandlePost)
 	r.GET("/:shortURL", controller.HandleGet)
 
