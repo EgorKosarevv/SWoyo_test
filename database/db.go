@@ -9,12 +9,11 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// Connect создает соединение с базой данных
+// "Connect" creates a database connection
 func Connect() (*sql.DB, error) {
-	// Жестко заданное значение sslmode
+
 	sslMode := "disable"
 
-	// Вывод значений конфигурации для отладки
 	fmt.Printf("Config values: User=%s, DBName=%s, SSLMode=%s, Password=%s\n",
 		config.Cfg.DB.User, config.Cfg.DB.DBName, sslMode, config.Cfg.DB.Password)
 

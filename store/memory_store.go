@@ -4,20 +4,17 @@ import (
 	"sync"
 )
 
-// MemoryStore реализует интерфейс Store с использованием памяти для хранения данных
 type MemoryStore struct {
 	mu   sync.RWMutex
 	urls map[string]string
 }
 
-// NewMemoryStore создает новый экземпляр MemoryStore
 func NewMemoryStore() *MemoryStore {
 	return &MemoryStore{
 		urls: make(map[string]string),
 	}
 }
 
-// Save сохраняет короткий URL и оригинальный URL
 func (s *MemoryStore) Save(shortURL, originalURL string) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
@@ -25,7 +22,6 @@ func (s *MemoryStore) Save(shortURL, originalURL string) error {
 	return nil
 }
 
-// GetOriginalURL возвращает оригинальный URL по короткому URL
 func (s *MemoryStore) GetOriginalURL(shortURL string) (string, error) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
@@ -36,7 +32,6 @@ func (s *MemoryStore) GetOriginalURL(shortURL string) (string, error) {
 	return originalURL, nil
 }
 
-// Exists проверяет, существует ли короткий URL
 func (s *MemoryStore) Exists(shortURL string) (bool, error) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()

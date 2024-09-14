@@ -5,3 +5,5 @@ db:
 
 url:
   length: 7
+  maxLength: 10         
+  maxAttempts: 1000      

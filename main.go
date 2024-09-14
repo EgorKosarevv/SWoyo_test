@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	// Загрузка конфигурации
+	// Loading the configuration
 	config.LoadConfig()
 
 	useDB := flag.Bool("d", false, "Use database storage")

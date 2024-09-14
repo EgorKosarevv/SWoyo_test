@@ -24,13 +24,15 @@ func (c *URLController) HandlePost(ctx *gin.Context) {
 		return
 	}
 
-	// Генерация короткого URL
+	// Short URL generation
 	shortURL, err := models.GenerateShortURL(originalURL, c.storage)
 	if err != nil {
+		// Error logging
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate short URL"})
 		return
 	}
 
+	// Response with a short URL
 	ctx.JSON(http.StatusOK, gin.H{"shortURL": shortURL})
 }
 
@@ -39,9 +41,11 @@ func (c *URLController) HandleGet(ctx *gin.Context) {
 
 	originalURL, err := c.storage.GetOriginalURL(shortURL)
 	if err != nil {
+		// Error logging
 		ctx.JSON(http.StatusNotFound, gin.H{"error": "URL not found"})
 		return
 	}
 
+	// Redirecting to the original URL
 	ctx.Redirect(http.StatusMovedPermanently, originalURL)
 }

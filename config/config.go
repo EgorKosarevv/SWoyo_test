@@ -14,23 +14,22 @@ type Config struct {
 		DBName   string `yaml:"dbname"`
 	} `yaml:"db"`
 	URL struct {
-		Length int `yaml:"length"`
+		Length      int `yaml:"length"`
+		MaxLength   int `yaml:"maxLength"`
+		MaxAttempts int `yaml:"maxAttempts"`
 	} `yaml:"url"`
 }
 
 var Cfg Config
 
 func LoadConfig() {
-	file, err := os.ReadFile("config.yml")
+	file, err := os.ReadFile("config/config.yml")
 	if err != nil {
-		log.Fatalf("Ошибка чтения файла конфигурации: %v", err)
+		log.Fatalf("Error reading the configuration file: %v", err)
 	}
 
 	err = yaml.Unmarshal(file, &Cfg)
 	if err != nil {
-		log.Fatalf("Ошибка разбора файла конфигурации: %v", err)
+		log.Fatalf("Error parsing the configuration file: %v", err)
 	}
-
-	// Для отладки: выведите загруженную конфигурацию
-	log.Printf("Загружена конфигурация: %+v", Cfg)
 }
