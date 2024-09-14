@@ -16,15 +16,15 @@ SWOYO_test/
 
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── config.yml&nbsp;&nbsp;&nbsp;&nbsp;# Конфигурационный файл
 
-   └──── config.go                  # Файл для работы с конфигурацией
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── config.go&nbsp;&nbsp;&nbsp;&nbsp;# Файл для работы с конфигурацией
 
 ├── controllers/
 
-   └──── url_controller.go # Контроллеры для обработки запросов
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── url_controller.go # Контроллеры для обработки запросов
 
 ├── database/
 
-   └──── db.go            # Подключение к базе данных
+   &emsp;└──── db.go            # Подключение к базе данных
 
 ├── models/
 
